@@ -1,1 +1,2 @@
-# marvel-coding-exercise
+# Marvel-Coding-Exercise
+Marvel Coding Exercise

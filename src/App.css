@@ -1,0 +1,107 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.content {
+  margin: 0 -10px;
+}
+.search {
+  margin: 2% 12%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search > span {
+  display: flex;
+}
+/* Set width to display 4 cards in a row*/
+/* .column {
+  float: left;
+  width: 20%;
+  
+} */
+/* .row {
+  margin: 0 -5px;
+  padding: 0 10%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  text-align: center;
+  margin: 10px;
+}
+
+/* Setting width and height for image*/
+.card img {
+  width: 100%;
+  height: 200px;
+}
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(15.82%,232px));
+  grid-gap: 10px;
+  padding: 10px;
+  margin: 0 10%;
+}
+
+.row > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  height: 100px;
+  max-height: 100px;
+}
+
+/* Adding some css like bakground color, height and display to header */
+.App-header {
+  background-color: #282c34;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

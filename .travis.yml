@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test
+  - npm run build
+  
+# deploy:
+#   provider: surge
+#   skip_cleanup: true
+#   domain: <my_name_here>.surge.sh
+#   project: ./build/
+
+deploy:
+  provider: heroku
+  api_key: 4fc708b6-8d2d-4b6f-a573-c7e3375c35d4
+  app: marvel-coding-exercise
+
+on:
+  branch: master
+  
+notifications:
+  email: koka.ui8@gmail.com
