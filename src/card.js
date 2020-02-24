@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Container Component for Card Information
 function Card(props) {
   const imgSrc = props.imageSrc;
   const characterName = props.characterName;

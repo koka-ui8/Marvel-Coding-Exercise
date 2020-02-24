@@ -5,8 +5,12 @@ import Card from './card';
 function Cards(props) {
     const [searchString, setSearchString] = useState('');
     const [sortedResults, setSortedResults] = useState([]);
+    /**  Used this useEffect to set sortedResults when marvelCharacters props are changed,
+     * and when there is a change in searchString
+    */
     useEffect(() => {
         if(searchString) {
+            // Filtering the characters if name includes the search string
             const filteredResults = props.marvelCharacters.filter(item => {
                 return item.name.toLowerCase().includes(searchString.toLowerCase());
             })
@@ -16,6 +20,7 @@ function Cards(props) {
         }
     }, [props.marvelCharacters, searchString])
     
+    // Rendering the cards with character image and name from the list of characters.
     return (
     <div className="content">
         <div className="search">

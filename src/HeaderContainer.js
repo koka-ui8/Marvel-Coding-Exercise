@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Container to display the header on the page
 function HeaderContainer() {
     return (<header className="App-header">
         <h3>Marvel Characters</h3>
