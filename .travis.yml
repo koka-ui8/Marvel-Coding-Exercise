@@ -7,12 +7,6 @@ cache:
 script:
   - npm test
   - npm run build
-  
-# deploy:
-#   provider: surge
-#   skip_cleanup: true
-#   domain: <my_name_here>.surge.sh
-#   project: ./build/
 
 deploy:
   provider: heroku

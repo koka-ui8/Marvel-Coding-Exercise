@@ -2,13 +2,12 @@ import React from 'react';
 
 // Container Component for Card Information
 function Card(props) {
-  const imgSrc = props.imageSrc;
-  const characterName = props.characterName;
+  const { imageSrc, characterName } = props;
   return (
     <div className="column">
       <div className="card">
-        <img src={imgSrc} alt="Avatar"/>
-        <div className="container">
+        <img src={imageSrc} alt="Avatar"/>
+        <div className="cardContainer">
             <h4><b>{characterName}</b></h4>
         </div>
       </div>

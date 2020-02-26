@@ -1,0 +1,38 @@
+.pageContainer {
+  user-select: none;
+  position: relative;
+  grid-column-start: 1;
+  .pageOptions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .first, .last, .pageLinks {
+      color: rgb(53, 149, 238);
+      padding: 0 10px;
+      cursor: pointer;
+
+      &:hover {
+        color: #444;
+      }
+
+      &.disabled {
+        color: #cfcfcf;
+        cursor: default;
+      }
+    }
+    .first {
+      margin-right: 15px;
+    }
+  
+    .last {
+      margin-left: 15px;
+    }
+  
+    .totalCount {
+      margin-left: 10px;
+      font-weight: 600;
+    }
+  }
+}
+  

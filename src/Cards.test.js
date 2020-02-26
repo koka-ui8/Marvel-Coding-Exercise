@@ -45,43 +45,20 @@ describe('List of Cards', () => {
       };
      
     wrapper = mount(<Cards {...props}/>);
-    wrapper.find("input").first().simulate("change", { target: {
-      value: 'a' }
+    it("sets the searchString and filters the cards", () => {
+
+      expect(wrapper.find("Card")).toHaveLength(1);
+
+      const firstCard = wrapper.find("Card").first();
+      expect(firstCard.prop("characterName").includes('a')).toEqual(marvelCharactersMock[0].name.includes('a'));
     });
-  it("sets the searchString and filters the cards", () => {
+    it("sets the searchString and filters the cards", () => {
 
-    expect(wrapper.find("Card")).toHaveLength(1);
+      expect(wrapper.find("Card")).toHaveLength(1);
 
-    const firstCard = wrapper.find("Card").first();
-    expect(firstCard.prop("characterName").includes('a')).toEqual(marvelCharactersMock[0].name.includes('a'));
+      const firstCard = wrapper.find("Card").first();
+      expect(!firstCard.prop("characterName").includes('a')).toEqual(false);
+      expect(firstCard.prop("imageSrc")).toEqual(marvelCharactersMock[0].thumbnail.path+ '.' + marvelCharactersMock[0].thumbnail.extension );
+    });
   });
-  it("sets the searchString and filters the cards", () => {
-
-    expect(wrapper.find("Card")).toHaveLength(1);
-
-    const firstCard = wrapper.find("Card").first();
-    expect(!firstCard.prop("characterName").includes('a')).toEqual(false);
-    expect(firstCard.prop("imageSrc")).toEqual(marvelCharactersMock[0].thumbnail.path+ '.' + marvelCharactersMock[0].thumbnail.extension );
-  });
-});
-});
-
-describe("Search by character name", () => {
-  // beforeEach(() => {
-  //   mockUseEffect();
-
-   
-  //   wrapper.setState({ searchString: 'a'})
-  // });
-
-  // wrapper = mount(<Cards {...props} />);
-  
-
-  // it("loads the right posts", () => {
-  //   expect(props.fetchPosts).toHaveBeenCalledWith(alice.id);
-  // });
-
-  // it("renders the posts", () => {
-  //   expect(wrapper.find("Post").prop("post")).toEqual(posts[0]);
-  // });
 });

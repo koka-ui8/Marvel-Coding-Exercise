@@ -1,41 +1,43 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Card from './card';
-
+import Pagination from './Pagination';
+import SearchInput from './Input';
 
 function Cards(props) {
-    const [searchString, setSearchString] = useState('');
-    const [sortedResults, setSortedResults] = useState([]);
-    /**  Used this useEffect to set sortedResults when marvelCharacters props are changed,
-     * and when there is a change in searchString
-    */
-    useEffect(() => {
-        if(searchString) {
-            // Filtering the characters if name includes the search string
-            const filteredResults = props.marvelCharacters.filter(item => {
-                return item.name.toLowerCase().includes(searchString.toLowerCase());
-            })
-            setSortedResults(filteredResults);
-        } else {
-            setSortedResults(props.marvelCharacters);
-        }
-    }, [props.marvelCharacters, searchString])
-    
-    // Rendering the cards with character image and name from the list of characters.
-    return (
-    <div className="content">
-        <div className="search">
-          <input type="text" placeholder="Search Characters by Name" value={searchString} onChange={e=> setSearchString(e.target.value)}/>
-          <span>{sortedResults.length} results</span>
-        </div>
-        <div className="row">
-          {sortedResults && sortedResults.map((character) => {
-              const imgSrc = `${character.thumbnail.path}.${character.thumbnail.extension}`;
-              return <Card key={character.id} characterName={character.name} imageSrc={imgSrc} />
-            })
-          }
-        </div>
+  const [searchString, setSearchString] = useState('');
+  /* onChange function takes the input value, update new search string and
+  pass it to parent component.
+  */
+  const onChange = (value) => {
+  setSearchString(value);
+  props.onSearch(value);
+  }
+
+  // Rendering the cards with character image and name from the list of characters.
+  return (
+  <div className="content">
+    <div className="search">
+      <SearchInput 
+        type="text"
+        placeholder="Search by Name"
+        value={searchString}
+        onChange={onChange} />
+      <span>{props.marvelCharacters.length} results</span>
     </div>
-    );
+    <div className="row">
+      {props.marvelCharacters &&
+      <Pagination defaultItemCountOption={7}>
+        {props.marvelCharacters.map((character) => {
+          const imgSrc = `${character.thumbnail.path}.${character.thumbnail.extension}`;
+          return <Card key={character.id} characterName={character.name} imageSrc={imgSrc} />
+        })
+        }
+        </Pagination>
+      }
+      
+    </div>
+  </div>
+  );
 }
 
 export default Cards;
